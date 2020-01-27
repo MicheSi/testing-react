@@ -33,3 +33,11 @@ test('Api is working and fetching data', async () => {
 
     expect(mockGetData).toHaveBeenCalledTimes(1);
 })
+
+test('character list is rendering', () => {
+    const getByTestId = render(<StarWarsCharacters />);
+
+    // getByTestId(/characterlist/i);
+
+    wait(() => expect(getByTestId(/characterlist/i)));
+})
