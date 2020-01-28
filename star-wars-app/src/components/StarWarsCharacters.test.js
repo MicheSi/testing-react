@@ -24,8 +24,8 @@ test('App is rendering both previous and next buttons', async () => {
     fireEvent.click(prevButton);
     fireEvent.click(nextButton);
 
-    wait(() => expect(getByText(/previous/i)));
-    wait(() => expect(getByText(/next/i)));
+    await wait(() => expect(getByText(/previous/i)));
+    await wait(() => expect(getByText(/next/i)));
 })
 
 test('Api is working and fetching data', async () => {
@@ -34,18 +34,17 @@ test('Api is working and fetching data', async () => {
     expect(mockGetData).toHaveBeenCalledTimes(1);
 })
 
-test('character list is rendering', () => {
+test('character list is rendering', async () => {
     mockGetData.mockResolvedValueOnce({
-        next: "url",
-        prev: "url",
+        
         results: [
-          { test: "test 1", name: "test name", url: 1 },
-          { test: "test 2", name: "test name", url: 2 }
+          { test: "test 1", name: "test name" },
+          { test: "test 2", name: "test name" }
         ]
       });
     const getByTestId = render(<StarWarsCharacters />);
 
     // getByTestId(/characterlist/i);
 
-    wait(() => expect(getByTestId(/characterlist/i)));
+   await wait(() => expect(getByTestId(/characterlist/i)));
 })
