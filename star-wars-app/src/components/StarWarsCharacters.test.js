@@ -35,6 +35,14 @@ test('Api is working and fetching data', async () => {
 })
 
 test('character list is rendering', () => {
+    mockGetData.mockResolvedValueOnce({
+        next: "url",
+        prev: "url",
+        results: [
+          { test: "test 1", name: "test name", url: 1 },
+          { test: "test 2", name: "test name", url: 2 }
+        ]
+      });
     const getByTestId = render(<StarWarsCharacters />);
 
     // getByTestId(/characterlist/i);
