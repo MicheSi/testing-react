@@ -46,7 +46,7 @@ export default function StarWarsCharacters() {
       ) : (
         <>
           {characters.map(character => (
-            <div key={character.url}>{character.name}</div>
+            <div data-testid='characterList' key={character.url}>{character.name}</div>
           ))}
         </>
       )}
